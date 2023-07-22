@@ -1,21 +1,26 @@
 import { Button, Htag, Ptag, Tag } from '../components'
 import Image from 'next/image'
 import { redirect } from 'next/dist/server/api-utils'
+import { useEffect, useState } from 'react'
+import { Rating } from '@/components/Rating/Rating';
 
 export default function Home() {
+
+  const [counter, setCounter] = useState<number>(0);
+  const [rating, setRating] = useState<number>(3);
+
+
   return (
       <div>
         <Htag tag='h1'>Header</Htag>
-        <Htag tag='h2'>Subheader</Htag>
-        <Htag tag='h3'>Subsubheader</Htag>
-        <Button appearance='primary' arrow='down' >Primary</Button>
-        <Button appearance='ghost' arrow='right'>Ghost</Button>
-        <Ptag size='l'>Hello there l</Ptag>
-        <Ptag size='m'>Hello there mmmm</Ptag>
-        <Ptag size='s'>Hello there small</Ptag>
-        <Tag>hello</Tag>
-        <Tag size='s' color='green'>hello</Tag>
         <Tag color='primary' href='/products'>hello</Tag>
+        <Ptag size='l'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam velit tenetur praesentium hic culpa harum corrupti a aliquam autem ipsum quas amet provident placeat quod nulla, perspiciatis, sint, dicta reiciendis!</Ptag>
+        <Ptag>{counter}</Ptag>
+        <Button appearance='primary' onClick={()=>setCounter(counter + 1) }>
+          Plus 1
+        </Button>
+        <Rating rating={rating}/>
+        <Rating rating={rating} setRating={setRating} isEditable={true}/>
       </div>
   )
 }
