@@ -2,7 +2,8 @@ import { Button, Htag, Ptag, Tag } from '../components'
 import Image from 'next/image'
 import { redirect } from 'next/dist/server/api-utils'
 import { useEffect, useState } from 'react'
-import { Rating } from '@/components/Rating/Rating';
+import { Rating } from '../components/Rating/Rating';
+import { Layout } from '../layout/Layout';
 
 export default function Home() {
 
@@ -11,7 +12,7 @@ export default function Home() {
 
 
   return (
-      <div>
+      <Layout>
         <Htag tag='h1'>Header</Htag>
         <Tag color='primary' href='/products'>hello</Tag>
         <Ptag size='l'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam velit tenetur praesentium hic culpa harum corrupti a aliquam autem ipsum quas amet provident placeat quod nulla, perspiciatis, sint, dicta reiciendis!</Ptag>
@@ -21,6 +22,6 @@ export default function Home() {
         </Button>
         <Rating rating={rating}/>
         <Rating rating={rating} setRating={setRating} isEditable={true}/>
-      </div>
+      </Layout>
   )
 }
