@@ -23,13 +23,7 @@ function Home({menu}: HomeProps) : JSX.Element {
         </Button>
         <Rating rating={rating}/>
         <Rating rating={rating} setRating={setRating} isEditable={true}/>
-        <ul>
-          {menu.map(m=>{
-            return <li key={m._id.secondCategory}>
-              {m._id.secondCategory}
-            </li>
-          })}
-        </ul>
+        
       </>
   )
 
