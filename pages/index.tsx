@@ -5,6 +5,7 @@ import { withLayout } from '../layout/Layout';
 import { GetStaticProps } from 'next';
 import axios from "axios";
 import { MenuItem } from '../interfaces/menu.interface';
+import Link from 'next/link';
 
 function Home({menu}: HomeProps) : JSX.Element {
 
@@ -23,7 +24,7 @@ function Home({menu}: HomeProps) : JSX.Element {
         </Button>
         <Rating rating={rating}/>
         <Rating rating={rating} setRating={setRating} isEditable={true}/>
-        
+        <Link href='/search'>Search</Link>
       </>
   )
 
