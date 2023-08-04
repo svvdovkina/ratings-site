@@ -1,0 +1,33 @@
+/* stylelint-disable selector-class-pattern */
+
+.title {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    justify-items: baseline;
+    gap: 20px;
+}
+
+.hhTitle {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    justify-items: baseline;
+    gap: 20px;
+}
+
+
+.advItem {
+    display: grid;
+    grid-template-columns: 50px auto;
+    gap: 10px 40px;
+    margin-bottom: 30px;
+}
+
+.vline {
+    width: 1px;
+    background-color: #D2D2D2;
+    margin-left: 25px;
+    margin-top: 10px;
+}

@@ -1,0 +1,10 @@
+.card{
+    color: inherit;
+    box-shadow: 0 4px 4px 0 #0000000D;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+.blue {
+    background-color: #F9F8FF;
+}

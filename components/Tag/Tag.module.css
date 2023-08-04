@@ -20,7 +20,7 @@
 }
 
 .red {
-    color: var(--while);
+    color: var(--white);
     background-color: #DE0000;
     font-weight: bold;
 }
