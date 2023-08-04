@@ -1,0 +1,28 @@
+/* stylelint-disable selector-class-pattern */
+.sort {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 40px;
+}
+
+.sortIcon {
+    display: none;
+}
+
+.active .sortIcon {
+    display: block;
+    margin-right: 8px;
+}
+
+.active {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.span {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px;
+    align-items: center;
+}

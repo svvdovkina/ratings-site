@@ -1,9 +1,12 @@
-import { Htag, Ptag, Tag } from '@/components'
+import { Htag, Ptag, Tag, Sort } from '@/components'
 import {TopPageComponentProps} from './TopPage.props'
 import styles from './TopPage.module.css'
 import { HhData } from '@/components/HhData/HhData'
 import { TopLevelCategory } from '@/interfaces/page.interface'
 import ChekMark from "./checkMark.svg"
+import {useReducer} from "react"
+import { sortReducer } from '@/components/Sort/Sort.reducer'
+import { SortEnum } from '@/components/Sort/Sort.props'
 
 const AdvantageItem = ({title, text}: {title: string, text: string}): JSX.Element=>{
     return <div className={styles.advItem}>
@@ -15,16 +18,22 @@ const AdvantageItem = ({title, text}: {title: string, text: string}): JSX.Elemen
 }
 
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps): JSX.Element =>{
+    
+    const [sortState, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating})
+    const setSort = (sort: SortEnum)=>{
+        dispatchSort({type: sort})
+    }
+
     return <div className={styles.wrapper}>
         <div className={styles.title}>
             <Htag tag='h1'>{page.title}</Htag>
             <Tag color='gray' size='m'>{products?.length}</Tag>
-            <span>Sorting</span>
+            <Sort sort={sortState.sort} setSort={setSort}/>
         </div>
         <div>
-            {products && products.map(product=>{
+            {sortState.products && sortState.products.map(product=>{
                 return <div key={product._id} >
-                    {product.title}
+                    {product.title} ({product.price}, {product.initialRating})
                 </div>
             })}
         </div>
