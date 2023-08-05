@@ -1,4 +1,4 @@
-import { Button, Htag, Ptag, Tag } from '../components'
+import { Button, Htag, Input, Ptag, Tag } from '../components'
 import { useState } from 'react'
 import { Rating } from '../components/Rating/Rating';
 import { withLayout } from '../layout/Layout';
@@ -24,7 +24,7 @@ function Home({menu}: HomeProps) : JSX.Element {
         </Button>
         <Rating rating={rating}/>
         <Rating rating={rating} setRating={setRating} isEditable={true}/>
-        <Link href='/search'>Search</Link>
+        <Input placeholder='test'/>
       </>
   )
 
