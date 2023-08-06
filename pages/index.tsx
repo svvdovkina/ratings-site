@@ -6,6 +6,7 @@ import { GetStaticProps } from 'next';
 import axios from "axios";
 import { MenuItem } from '../interfaces/menu.interface';
 import Link from 'next/link';
+import { TextArea } from '@/components/TextArea/TextArea';
 
 function Home({menu}: HomeProps) : JSX.Element {
 
@@ -25,6 +26,7 @@ function Home({menu}: HomeProps) : JSX.Element {
         <Rating rating={rating}/>
         <Rating rating={rating} setRating={setRating} isEditable={true}/>
         <Input placeholder='test'/>
+        <TextArea/>
       </>
   )
 

@@ -1,11 +1,10 @@
-import { Htag, Ptag, Tag, Sort } from '@/components'
+import { Htag, Ptag, Tag, Sort, HhData } from '@/components'
 import {TopPageComponentProps} from './TopPage.props'
 import styles from './TopPage.module.css'
-import { HhData } from '@/components/HhData/HhData'
 import { TopLevelCategory } from '@/interfaces/page.interface'
 import ChekMark from "./checkMark.svg"
 import {useReducer} from "react"
-import { sortReducer } from '@/components/Sort/Sort.reducer'
+import { sortReducer } from '@/components/Sort/sort.reducer'
 import { SortEnum } from '@/components/Sort/Sort.props'
 
 const AdvantageItem = ({title, text}: {title: string, text: string}): JSX.Element=>{
