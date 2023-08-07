@@ -1,0 +1,126 @@
+/* stylelint-disable selector-class-pattern */
+.logo {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.card {
+    padding: 30px 30px 20px;
+}
+
+.titleRow {
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr;
+    gap: 30px;
+    justify-content: center;
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: 20px;
+}
+
+.tags {
+    margin-top: 10px;
+}
+
+.throphyIcon {
+    border: 1px solid #DCB44E;
+    border-radius: 5px;
+    padding: 0 5px;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.prices {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr auto;
+    gap: 20px;
+}
+
+.singlePrice {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    
+}
+
+.priceValue {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.creditPeriod {
+    font-size: 14px;
+}
+
+.priceLabel {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19px;
+}
+
+.description {
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+}
+
+.infoRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    justify-content: center;
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.cheracteristic {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+}
+
+.charName {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 32px;
+    padding-right: 15px;
+}
+
+.dotted {
+    height: 1px;
+    border-bottom: 1px dotted var(--gray);
+}
+
+.charValue {
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.avdBlock {
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 3px solid var(--green);
+}
+
+.red {
+    border-color: var(--red);
+}
+
+.advTitle {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+
+.buttonsRow {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 20px;
+}

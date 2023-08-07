@@ -1,4 +1,4 @@
-import { Htag, Ptag, Tag, Sort, HhData } from '@/components'
+import { Htag, Ptag, Tag, Sort, HhData, Product } from '@/components'
 import {TopPageComponentProps} from './TopPage.props'
 import styles from './TopPage.module.css'
 import { TopLevelCategory } from '@/interfaces/page.interface'
@@ -31,9 +31,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
         </div>
         <div>
             {sortState.products && sortState.products.map(product=>{
-                return <div key={product._id} >
-                    {product.title} ({product.price}, {product.initialRating})
-                </div>
+                return <Product product={product} key={product._id} />
             })}
         </div>
 
