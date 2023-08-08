@@ -1,6 +1,6 @@
+/* stylelint-disable media-feature-range-notation */
 /* stylelint-disable selector-class-pattern */
 .logo {
-    border: 1px solid black;
     border-radius: 5px;
 }
 
@@ -10,11 +10,18 @@
 
 .titleRow {
     display: grid;
-    grid-template-columns: 70px 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     justify-content: center;
     border-bottom: 1px solid var(--gray-light);
     padding-bottom: 20px;
+}
+
+.logoTitle {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 30px;
+    justify-content: center;
 }
 
 .tags {
@@ -38,7 +45,7 @@
 
 .singlePrice {
     display: grid;
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: auto 1fr;
     
 }
 
@@ -46,6 +53,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 27px;
+    margin-right: 3px;
 }
 
 .creditPeriod {
@@ -73,12 +81,12 @@
     justify-content: center;
     border-bottom: 1px solid var(--gray-light);
     padding-bottom: 20px;
-    align-items: center;
 }
 
 .cheracteristic {
     display: grid;
     grid-template-columns: auto 1fr auto;
+    gap: 15px;
     align-items: baseline;
 }
 
@@ -86,16 +94,13 @@
     font-size: 16px;
     font-weight: 700;
     line-height: 32px;
-    padding-right: 15px;
 }
 
 .dotted {
-    height: 1px;
     border-bottom: 1px dotted var(--gray);
 }
 
 .charValue {
-    padding-left: 15px;
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
@@ -123,4 +128,40 @@
     display: grid;
     grid-template-columns: auto auto 1fr;
     gap: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .titleRow {
+        grid-template-columns: 1fr;
+    }
+
+    .prices {
+        grid-template-columns: auto auto auto 1fr;
+        gap: 50px;
+    }
+
+    .infoRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .prices {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .cheracteristic {
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logoTitle {
+        grid-template-columns: 1fr;
+    }
+    
+    .prices {
+        grid-template-columns: 1fr;
+    }
 }

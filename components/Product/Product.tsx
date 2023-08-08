@@ -10,18 +10,20 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
     const imageURL = process.env.NEXT_PUBLIC_DOMAIN + product.image;
     return <Card className={styles.card}>
         <div className={styles.titleRow}>
-            <div ><Image loader={({width})=>imageURL+`?w=${width}`} className={styles.logo} src={imageURL} alt="logo" width={70} height={70} /></div>
-            <div>
-                <Htag tag="h2">
-                    {product.title}
-                    <span className={styles.throphyIcon} ><ThrophyImage/></span>
-                </Htag>
-                <div className={styles.tags}>
-                    {product.categories.map((tag, i)=>{
-                        return <Tag key={i}>{tag}</Tag>
-                    })}
+            <div className={styles.logoTitle}>
+                <div ><Image loader={({width})=>imageURL+`?w=${width}`} className={styles.logo} src={imageURL} alt="logo" width={70} height={70} /></div>
+                <div>
+                    <Htag tag="h2">
+                        {product.title}
+                        <span className={styles.throphyIcon} ><ThrophyImage/></span>
+                    </Htag>
+                    <div className={styles.tags}>
+                        {product.categories.map((tag, i)=>{
+                            return <Tag key={i}>{tag}</Tag>
+                        })}
+                    </div>
                 </div>
-        
+                
             </div>
             <div className={styles.prices}>
                 <div className={styles.singlePrice}>
@@ -34,7 +36,7 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
                 <div className={styles.singlePrice}>
                     <span>
                         <span className={styles.priceValue}>{priceRu(product.credit)}</span> 
-                        <span className={styles.creditPeriod}> / month </span>
+                        <span className={styles.creditPeriod}>/ month </span>
                     </span>
                     <span className={styles.priceLabel}>on credit</span>
                 </div>
