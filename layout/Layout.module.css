@@ -30,7 +30,7 @@
     grid-area: footer;
 }
 
-@media screen and (width <= 765px) {
+@media screen and (width <= 800px) {
     .layout {
         grid-template-columns: minmax(320px, 1fr);
         grid-template-areas: 

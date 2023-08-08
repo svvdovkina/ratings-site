@@ -1,0 +1,41 @@
+/* stylelint-disable media-feature-range-notation */
+/* stylelint-disable selector-class-pattern */
+.reviewsCard {
+    padding: 30px;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.titleRowPart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.userName {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 640px) {
+    .titleRow {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

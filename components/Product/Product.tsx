@@ -5,10 +5,16 @@ import Image from "next/image";
 import { pluralize, priceRu } from "@/helpers/helpers";
 import ThrophyImage from "./throphy.svg"
 import classNames from "classnames";
+import { useState } from "react";
+import { Reviews } from "../Reviews/Reviews";
 
 export const Product = ({product, className, ...props}: ProductProps) : JSX.Element =>{
+
+    const [isReviewsOpen, setIsReviewsOpen] = useState<boolean>(false);
+
     const imageURL = process.env.NEXT_PUBLIC_DOMAIN + product.image;
-    return <Card className={styles.card}>
+    return <>
+        <Card className={styles.card}>
         <div className={styles.titleRow}>
             <div className={styles.logoTitle}>
                 <div ><Image loader={({width})=>imageURL+`?w=${width}`} className={styles.logo} src={imageURL} alt="logo" width={70} height={70} /></div>
@@ -78,8 +84,10 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
 
         <div className={styles.buttonsRow}>
             <Button appearance='primary'>Learn more</Button>
-            <Button appearance='ghost' arrow='right'>Read reviews</Button>
+            <Button appearance='ghost' arrow={isReviewsOpen? 'down' : 'right'} onClick={()=>setIsReviewsOpen(prev=>!prev)}>Read reviews</Button>
         </div>
         
     </Card>
+    {isReviewsOpen && <Reviews reviews={product.reviews}/>}
+    </>
 }
