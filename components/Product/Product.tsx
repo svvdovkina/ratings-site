@@ -2,7 +2,7 @@ import { Card, Button, Htag, Tag, Ptag, Rating } from "../";
 import { ProductProps } from "./Product.props";
 import styles from "./Product.module.css"
 import Image from "next/image";
-import { priceRu } from "@/helpers/helpers";
+import { pluralize, priceRu } from "@/helpers/helpers";
 import ThrophyImage from "./throphy.svg"
 import classNames from "classnames";
 
@@ -10,7 +10,7 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
     const imageURL = process.env.NEXT_PUBLIC_DOMAIN + product.image;
     return <Card className={styles.card}>
         <div className={styles.titleRow}>
-            <div ><Image loader={()=>imageURL} className={styles.logo} src={imageURL} alt="logo" width={70} height={70} /></div>
+            <div ><Image loader={({width})=>imageURL+`?w=${width}`} className={styles.logo} src={imageURL} alt="logo" width={70} height={70} /></div>
             <div>
                 <Htag tag="h2">
                     {product.title}
@@ -40,7 +40,7 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
                 </div>
                 <div className={styles.singlePrice}>
                     <Rating rating={product.reviewAvg || product.initialRating}/>
-                    <span className={styles.priceLabel}>{product.reviewCount} reviews</span>
+                    <span className={styles.priceLabel}>{product.reviewCount} {pluralize(product.reviewCount, ['review', 'reviews'])}</span>
                 </div>
             </div>
         </div>

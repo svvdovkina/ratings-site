@@ -40,3 +40,16 @@ export const priceRu = (price: number): string => {
         { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }
         ).format(price)
 }
+
+export const pluralize = (count: number, titles: [string, string])=>{
+    const pluralRules = new Intl.PluralRules('en-US');
+    const grammaticalNumber = pluralRules.select(count);
+    switch (grammaticalNumber) {
+        case 'one':
+            return titles[0];
+        case 'other':
+            return titles[1];
+        default:
+            return titles[1];
+    }
+}
