@@ -3,8 +3,9 @@ import styles from "./Reviews.module.css"
 import { Card } from "../Card/Card";
 import UserIcon from "./user.svg"
 import { Rating } from "../Rating/Rating";
+import { ReviewForm } from "../ReviewForm/ReviewForm";
 
-export const Reviews = ({reviews, ...props}: ReviewsProps) => {
+export const Reviews = ({reviews, productId, ...props}: ReviewsProps) => {
     return <Card color='blue' className={styles.reviewsCard}>
         <div className={styles.reviews}>
             {reviews.map(review=>{
@@ -33,5 +34,6 @@ export const Reviews = ({reviews, ...props}: ReviewsProps) => {
                 </div>
             })}
         </div>
+        <ReviewForm productId={productId}/>
     </Card>
 }

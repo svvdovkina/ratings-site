@@ -88,6 +88,6 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
         </div>
         
     </Card>
-    {isReviewsOpen && <Reviews reviews={product.reviews}/>}
+    {isReviewsOpen && <Reviews productId={product._id} reviews={product.reviews}/>}
     </>
 }

@@ -1,0 +1,77 @@
+/* stylelint-disable media-feature-range-notation */
+/* stylelint-disable selector-class-pattern */
+.reviewForm {
+    padding-top: 30px;
+}
+
+.titleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.titleInputs {
+    display: flex;
+    gap: 30px;
+}
+
+.rating {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+
+}
+
+.textArea {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.buttonRow {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.success, .error {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--green-light);
+    color: var(--green);
+    border-radius: 5px;
+    display: none;
+}
+
+.error {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.showMsg {
+    display: block;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .titleRow {
+        flex-direction: column;
+        gap: 15px;
+        align-items: baseline;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .titleInputs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttonRow {
+        flex-direction: column;
+        align-items: unset;
+    }
+}
