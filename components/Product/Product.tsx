@@ -5,15 +5,24 @@ import Image from "next/image";
 import { pluralize, priceRu } from "@/helpers/helpers";
 import ThrophyImage from "./throphy.svg"
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Reviews } from "../Reviews/Reviews";
 
 export const Product = ({product, className, ...props}: ProductProps) : JSX.Element =>{
 
     const [isReviewsOpen, setIsReviewsOpen] = useState<boolean>(false);
+    const reviewRef = useRef<HTMLDivElement>(null);
+
+    const scrollToReviews = () =>{
+        setIsReviewsOpen(true);
+        reviewRef.current?.scrollIntoView({
+            behavior:'smooth',
+            block: 'start'
+        });
+    }
 
     const imageURL = process.env.NEXT_PUBLIC_DOMAIN + product.image;
-    return <>
+    return <div {...props}>
         <Card className={styles.card}>
         <div className={styles.titleRow}>
             <div className={styles.logoTitle}>
@@ -48,7 +57,11 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
                 </div>
                 <div className={styles.singlePrice}>
                     <Rating rating={product.reviewAvg || product.initialRating}/>
-                    <span className={styles.priceLabel}>{product.reviewCount} {pluralize(product.reviewCount, ['review', 'reviews'])}</span>
+                    <span className={styles.priceLabel}>
+                        <a href="#ref" onClick={scrollToReviews}>
+                            {product.reviewCount} {pluralize(product.reviewCount, ['review', 'reviews'])}
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>
@@ -88,6 +101,6 @@ export const Product = ({product, className, ...props}: ProductProps) : JSX.Elem
         </div>
         
     </Card>
-    {isReviewsOpen && <Reviews productId={product._id} reviews={product.reviews}/>}
-    </>
+    {isReviewsOpen && <Reviews ref={reviewRef} productId={product._id} reviews={product.reviews}/>}
+    </div>
 }

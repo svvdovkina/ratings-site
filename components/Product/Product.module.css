@@ -66,6 +66,10 @@
     line-height: 19px;
 }
 
+.priceLabel a {
+    color: var(--primary);
+}
+
 .description {
     margin: 15px 0;
     font-size: 16px;

@@ -1,12 +1,14 @@
+/* eslint-disable react/display-name */
 import { ReviewsProps } from "./Reviews.props";
 import styles from "./Reviews.module.css"
 import { Card } from "../Card/Card";
 import UserIcon from "./user.svg"
 import { Rating } from "../Rating/Rating";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
+import { ForwardedRef, forwardRef } from "react";
 
-export const Reviews = ({reviews, productId, ...props}: ReviewsProps) => {
-    return <Card color='blue' className={styles.reviewsCard}>
+export const Reviews = forwardRef(({reviews, productId, ...props}: ReviewsProps, ref: ForwardedRef<HTMLDivElement>) => {
+    return <Card color='blue' className={styles.reviewsCard} ref={ref}>
         <div className={styles.reviews}>
             {reviews.map(review=>{
                 const date = new Date(review.createdAt).toLocaleDateString('en-us', 
@@ -36,4 +38,4 @@ export const Reviews = ({reviews, productId, ...props}: ReviewsProps) => {
         </div>
         <ReviewForm productId={productId}/>
     </Card>
-}
+})
