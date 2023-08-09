@@ -1,9 +1,11 @@
 import { ProductModel } from "@/interfaces/product.interface";
+import { initialize } from "next/dist/server/lib/render-server";
 import { SortEnum } from "./Sort.props"
 
-export type SortActions = {
-    type: SortEnum.Price
-} | {type: SortEnum.Rating};
+export type SortActions = 
+{type: SortEnum.Price} 
+| {type: SortEnum.Rating}
+| {type: 'reset', initialState: ProductModel[]};
 
 export interface SortReducerState {
     sort: SortEnum;
@@ -21,6 +23,11 @@ export const sortReducer = (state: SortReducerState, action: SortActions): SortR
             return {
                 sort: SortEnum.Price,
                 products: state.products.sort((pr1, pr2)=>(pr1.price - pr2.price))
+            }
+        case 'reset':
+            return {
+                sort: SortEnum.Rating,
+                products: action.initialState
             }
         default:
             throw new Error('Unexpected sorting type')

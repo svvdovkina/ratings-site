@@ -3,7 +3,7 @@ import {TopPageComponentProps} from './TopPage.props'
 import styles from './TopPage.module.css'
 import { TopLevelCategory } from '@/interfaces/page.interface'
 import ChekMark from "./checkMark.svg"
-import {useReducer} from "react"
+import {useEffect, useReducer} from "react"
 import { sortReducer } from '@/components/Sort/sort.reducer'
 import { SortEnum } from '@/components/Sort/Sort.props'
 
@@ -19,9 +19,14 @@ const AdvantageItem = ({title, text}: {title: string, text: string}): JSX.Elemen
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps): JSX.Element =>{
     
     const [sortState, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating})
+    
     const setSort = (sort: SortEnum)=>{
         dispatchSort({type: sort})
     }
+
+    useEffect(()=>{
+        dispatchSort({type:'reset', initialState: products});
+    }, [products])
 
     return <div className={styles.wrapper}>
         <div className={styles.title}>
