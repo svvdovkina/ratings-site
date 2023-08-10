@@ -1,4 +1,4 @@
-import { Htag, Ptag, Tag, Sort, HhData, Product } from '@/components'
+import { Htag, Ptag, Tag, Sort, HhData, Product, Button } from '@/components'
 import {TopPageComponentProps} from './TopPage.props'
 import styles from './TopPage.module.css'
 import { TopLevelCategory } from '@/interfaces/page.interface'
@@ -6,6 +6,8 @@ import ChekMark from "./checkMark.svg"
 import {useEffect, useReducer} from "react"
 import { sortReducer } from '@/components/Sort/sort.reducer'
 import { SortEnum } from '@/components/Sort/Sort.props'
+import { useScrollY } from '@/hooks/useScrollY'
+import classNames from 'classnames'
 
 const AdvantageItem = ({title, text}: {title: string, text: string}): JSX.Element=>{
     return <div className={styles.advItem}>
@@ -24,9 +26,15 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
         dispatchSort({type: sort})
     }
 
+    const scrollToTop = ()=>{
+        window.scrollTo({ top: 10, behavior: 'smooth' });
+    }
+
     useEffect(()=>{
         dispatchSort({type:'reset', initialState: products});
     }, [products])
+
+    const [y, vh] = useScrollY();
 
     return <div className={styles.wrapper}>
         <div className={styles.title}>
@@ -34,6 +42,16 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
             <Tag color='gray' size='m'>{products?.length}</Tag>
             <Sort sort={sortState.sort} setSort={setSort}/>
         </div>
+        <Button 
+            appearance='primary'
+            className={classNames(styles.fixedBtn, {
+                [styles.hiddenBtn]: y <= vh,
+                [styles.showBtn]: y > vh,
+            })}
+            onClick={scrollToTop}
+        >
+            Go up &uarr;
+        </Button>
         <div>
             {sortState.products && sortState.products.map(product=>{
                 return <Product product={product} key={product._id} />
