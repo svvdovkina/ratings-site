@@ -10,6 +10,7 @@
   --green: #1DC37E;
   --green-light: #C8F8E4;
   --line: #DFDFDF;
+  --background: #F5F6F8;
 }
 
 * {
@@ -23,7 +24,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   color: var(--black);
-  background-color: #F5F6F8;
+  background-color: var(--background);
 }
 
 a {
