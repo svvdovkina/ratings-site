@@ -37,9 +37,11 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
     const [y, vh] = useScrollY();
 
     return <div className={styles.wrapper}>
-        <div className={styles.title}>
-            <Htag tag='h1'>{page.title}</Htag>
-            <Tag color='gray' size='m'>{products?.length}</Tag>
+        <div className={styles.titleRow}>
+            <div className={styles.titleMain}>
+                <Htag tag='h1'>{page.title}</Htag>
+                <Tag color='gray' size='m' className={styles.countTag}>{products?.length}</Tag>
+            </div>
             <Sort sort={sortState.sort} setSort={setSort}/>
         </div>
         <Button 
@@ -78,11 +80,13 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
             <Ptag>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum consequuntur ex odio, magni sit doloribus praesentium pariatur eos vel voluptatibus voluptas explicabo labore. Sunt culpa nisi unde iste at modi.</Ptag>
         </div>
 
-        <div className={styles.tags}>
+        <div>
             <Htag tag='h2'>Skills you will gain</Htag>
-            {page.tags.map((tag, i)=>{
-                return <Tag key={i} color='primary' size='s'>{tag}</Tag>
-            })}
+            <div className={styles.tags}>
+                {page.tags.map((tag, i)=>{
+                    return <Tag key={i} color='primary' size='s'>{tag}</Tag>
+                })}
+            </div>
         </div>
             
     </div>
