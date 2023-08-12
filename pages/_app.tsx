@@ -13,8 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return <>
     <Head>
       <title>Ratings</title>
-      <meta name="description" content="Site with ratings" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta property='og:locale' content='ru_RU'/>
+      <meta property='og:locale' content='en_US'/>
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <main className={noto_sans.className}>
