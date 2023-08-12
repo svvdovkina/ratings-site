@@ -27,19 +27,20 @@ export const Menu = () : JSX.Element =>{
 
 
         return <div>
-            {firstLevelMenu.map(menu => {
-                return <div key={menu.route}>
-                    <Link href={`/${menu.route}`}>
+            {firstLevelMenu.map(flmenu => {
+                
+                return <div key={flmenu.route}>
+                    <Link href={`/${flmenu.route}`}>
                         <div className={classnames(
                             styles.firstLevel, {
-                                [styles.firstLevelActive]: menu.id == firstCategory
+                                [styles.firstLevelActive]: flmenu.id == firstCategory
                             }
                         )}>
-                            {menu.icon}
-                            <span>{menu.name}</span>
+                            {flmenu.icon}
+                            <span>{flmenu.name}</span>
                         </div>
                     </Link>
-                    {menu.id == firstCategory && buildSecondLevel(menu)}
+                    {flmenu.id == firstCategory && buildSecondLevel(flmenu)}
                 </div>
             })}
         </div>

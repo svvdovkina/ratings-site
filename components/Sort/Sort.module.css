@@ -1,7 +1,6 @@
 /* stylelint-disable selector-class-pattern */
 .sort {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
     gap: 40px;
 }
 
@@ -19,10 +18,9 @@
     color: var(--primary);
 }
 
-.span {
+.sortItem {
     cursor: pointer;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 5px;
-    align-items: center;
+    border: none;
+    background-color: inherit;
+    display: flex;
 }

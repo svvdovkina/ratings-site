@@ -5,22 +5,22 @@ import classNames from "classnames";
 
 export const Sort = ({sort, setSort, className, ...props}:SortProps):JSX.Element => {
     return <div className={classNames(className, styles.sort)} {...props}>
-        <span 
+        <button 
             onClick={()=>setSort(SortEnum.Rating)}
-            className={classNames(styles.span, {
+            className={classNames(styles.sortItem, {
                 [styles.active]: sort == SortEnum.Rating
             })}
         >
             <SortIcon className={styles.sortIcon}/> By rating
-        </span>
+        </button>
 
-        <span 
+        <button 
             onClick={()=>setSort(SortEnum.Price)}
-            className={classNames(styles.span, {
+            className={classNames(styles.sortItem, {
                 [styles.active]: sort == SortEnum.Price
             })}
         >
             <SortIcon className={styles.sortIcon}/> By price
-        </span>
+        </button>
     </div>
 }
